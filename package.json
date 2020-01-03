@@ -1,0 +1,22 @@
+{
+  "name": "ang-api-suumo",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node",
+    "nodemon": "nodemon",
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.39",
+    "@types/node": "^13.1.2",
+    "@types/request-promise": "^4.1.45",
+    "cookie-parser": "~1.4.4",
+    "jsdom": "^15.2.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
+    "source-map-support": "^0.5.16",
+    "typescript": "^3.7.4"
+  }
+}

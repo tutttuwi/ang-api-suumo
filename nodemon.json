@@ -1,0 +1,4 @@
+{
+  "watch": ["app", "routes", "index.ts"],
+  "ext": "ts"
+}
