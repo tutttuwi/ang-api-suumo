@@ -4,12 +4,7 @@ import { PropertyApi } from "./app/property-service";
 
 export const handler: APIGatewayProxyHandler = async (event, _context) => {
   let url = "";
-  if (event)
-    if (event.queryStringParameters) {
-      url = event.queryStringParameters.url;
-    }
-  let res = await new PropertyApi().getSuumoProperty(url);
-  return {
+  let response = {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Credentials": "true",
@@ -17,6 +12,17 @@ export const handler: APIGatewayProxyHandler = async (event, _context) => {
       "Access-Control-Allow-Headers": "*"
     },
     statusCode: 200,
-    body: JSON.stringify({ res: res })
+    body: ""
   };
+
+  if (event)
+    if (event.queryStringParameters) {
+      url = event.queryStringParameters.url;
+    }
+  if (!url) {
+    return response;
+  }
+  let body = await new PropertyApi().getSuumoProperty(url);
+  response.body = JSON.stringify(body);
+  return response;
 };
